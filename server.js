@@ -9,7 +9,9 @@ const db = require("knex")({
   connection: {
     connectionString:
       "postgres://kash5268:F7C3m9Sp6GHjCpBwJCukmMU4QCE5fbGr@dpg-ci42vp5iuie031nj2580-a.oregon-postgres.render.com/db_6fhy",
-    ssl: true,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   },
 });
 
