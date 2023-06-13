@@ -15,8 +15,6 @@ const db = require("knex")({
   },
 });
 
-// console.log(db.select("*").from("users"));
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -29,9 +27,9 @@ app.get("/", (req, res) => {
 
 app.post("/signin", (req, res) => {
   const { email, password } = req.body;
-  // if (!email || !password) {
-  //   return res.status(400).json("incorrect form submission");
-  // }
+  if (!email || !password) {
+    return res.status(400).json("incorrect form submission");
+  }
   db.select("email", "hash")
     .from("login")
     .where("email", "=", email)
@@ -112,7 +110,7 @@ app.put("/image", (req, res) => {
     .catch((err) => res.status(400).json("unable to get entries"));
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("app is running on port 3000");
 });
 
