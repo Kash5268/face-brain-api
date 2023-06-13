@@ -7,11 +7,11 @@ const req = require("express/lib/request");
 const db = require("knex")({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
+    host: "dpg-ci42vp5iuie031nj2580-a",
     port: 5432,
-    user: "postgres",
-    password: "Kashimo526810",
-    database: "smart-brain",
+    user: "kash5268",
+    password: "F7C3m9Sp6GHjCpBwJCukmMU4QCE5fbGr",
+    database: "face-brain-db",
   },
 });
 
